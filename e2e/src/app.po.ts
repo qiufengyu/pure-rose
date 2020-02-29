@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('app-root mat-toolbar span')).getText() as Promise<string>;
+    return element(by.css('app-root mat-toolbar span:nth-child(1)')).getText() as Promise<string>;
   }
 }
