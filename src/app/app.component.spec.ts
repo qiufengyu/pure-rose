@@ -26,6 +26,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('mat-toolbar > span').textContent).toContain('Pure Rose');
+    expect(compiled.querySelector('mat-toolbar > mat-toolbar-row > span').textContent).toContain('Pure Rose');
   });
 });
