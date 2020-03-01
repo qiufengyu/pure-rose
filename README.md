@@ -8,6 +8,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 [![Build Status](https://img.shields.io/travis/qiufengyu/pure-rose/master?style=flat&logo=travis%20ci)](https://travis-ci.com/qiufengyu/pure-rose)
 [![codecov](https://codecov.io/gh/qiufengyu/pure-rose/branch/master/graph/badge.svg)](https://codecov.io/gh/qiufengyu/pure-rose)
 
+## Source Repo
+
+Origin: https://github.com/DeborahK/Angular-NgRx-GettingStarted
+
+*Angular NgRx: Getting Started* by Deborah Kurata and Duncan Hunter on Pluralsight.
+
+To learn NgRx, with a Angular Material ( plus Refactoring ).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

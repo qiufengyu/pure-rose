@@ -3,21 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StepperVerticalComponent } from './stepper-vertical/stepper-vertical.component';
-import { MaterialModule } from './material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule} from './home/home.module';
+import { SharedModule } from './shared/shared.module';
+import { ProductData } from './product/product-data';
+import { UserModule } from './user/user.module';
+import { ProductModule } from './product/product.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    StepperVerticalComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(ProductData),
+    HomeModule,
+    ProductModule,
+    SharedModule,
+    UserModule,
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
