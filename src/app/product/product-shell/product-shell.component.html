@@ -1,1 +1,7 @@
-<p>product-shell works!</p>
+<div *ngIf="validUser">
+  <p>product-shell works, will show product list</p>
+</div>
+
+<div *ngIf="!validUser">
+  Oops, please login first.
+</div>

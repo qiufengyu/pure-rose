@@ -8,6 +8,10 @@ import { AuthService } from '../../user/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  constructor(private router: Router,
+              private authService: AuthService) {
+  }
+
   get isLoggedIn(): boolean {
     return this.authService.isLoggedIn();
   }
@@ -18,9 +22,6 @@ export class HeaderComponent implements OnInit {
     }
     return '';
   }
-
-  constructor(private router: Router,
-              private authService: AuthService) { }
 
   ngOnInit() {
   }

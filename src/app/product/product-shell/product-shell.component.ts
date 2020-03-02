@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../user/auth.service';
 
 @Component({
   selector: 'app-product-shell',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductShellComponent implements OnInit {
 
-  constructor() { }
+  validUser = false;
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.validUser = this.authService.isLoggedIn();
   }
 
 }

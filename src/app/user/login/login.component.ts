@@ -33,15 +33,14 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       const username = this.form.get('username').value;
       const password = this.form.get('password').value;
-      this.authService.login(username, password);
-      if (this.authService.redirectUrl) {
-        this.router.navigateByUrl(this.authService.redirectUrl);
-      } else {
-        this.router.navigate(['/product']);
+      if (this.authService.login(username, password)) {
+        if (this.authService.redirectUrl) {
+          this.router.navigateByUrl(this.authService.redirectUrl);
+        } else {
+          this.router.navigate(['/product']);
+        }
       }
-    } else {
-      this.loginInvalid = true;
     }
+    this.loginInvalid = true;
   }
-
 }
