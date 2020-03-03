@@ -5,7 +5,6 @@ import { CustomBarComponent } from './custom-bar/custom-bar.component';
 import { SharedModule } from '../shared/shared.module';
 
 
-
 @NgModule({
   declarations: [SnackComponent, CustomBarComponent],
   imports: [

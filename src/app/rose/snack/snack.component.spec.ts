@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SnackComponent } from './snack.component';
+import { SharedModule } from '../../shared/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('SnackComponent', () => {
   let component: SnackComponent;
@@ -8,7 +10,8 @@ describe('SnackComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SnackComponent ]
+      declarations: [ SnackComponent ],
+      imports: [ BrowserAnimationsModule, SharedModule ]
     })
     .compileComponents();
   }));

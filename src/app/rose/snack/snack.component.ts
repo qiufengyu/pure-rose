@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {CustomBarComponent} from '../custom-bar/custom-bar.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CustomBarComponent } from '../custom-bar/custom-bar.component';
 
 @Component({
   selector: 'app-snack',
