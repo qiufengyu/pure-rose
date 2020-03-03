@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductData } from './product/product-data';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
+import {RoseModule} from './rose/rose.module';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { ProductModule } from './product/product.module';
     HomeModule,
     ProductModule,
     SharedModule,
+    RoseModule,
     UserModule,
     AppRoutingModule,
 
