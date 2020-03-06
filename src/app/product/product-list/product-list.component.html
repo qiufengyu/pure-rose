@@ -1,1 +1,28 @@
-<p>product-list works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ pageTitle }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list role="productList">
+      <mat-list-item role="productList" *ngFor="let product of products">
+        <button mat-stroked-button [ngClass]="{ 'active': product?.id === selectedProduct?.id}" (click)="productSelected(product)">
+          {{ product.productName }}
+          <ng-container *ngIf="displayCode">
+            ({{ product.productCode }})
+          </ng-container>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <mat-card-actions>
+    <div *ngIf="errorMessage" class="mat-warn"> Error: {{ errorMessage }} </div>
+    <mat-checkbox [(ngModel)]="displayCode"> Display Product Code </mat-checkbox>
+    <div class="action-button"><button mat-raised-button color="primary" (click)="newProduct()"> Add </button></div>
+  </mat-card-actions>
+</mat-card>
+
+

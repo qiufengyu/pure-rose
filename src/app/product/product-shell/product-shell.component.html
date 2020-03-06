@@ -1,7 +1,9 @@
-<div *ngIf="validUser">
-  <p>product-shell works, will show product list</p>
+<div *ngIf="validUser" class="main-container"
+     fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
+  <app-product-list fxFlex="30%"></app-product-list>
+  <app-product-edit fxFlex="60%"></app-product-edit>
 </div>
 
-<div *ngIf="!validUser">
+<div *ngIf="!validUser" class="main-container">
   Oops, please login first.
 </div>

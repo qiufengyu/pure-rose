@@ -1,1 +1,71 @@
-<p>product-edit works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ pageTitle }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form novalidate (ngSubmit)="saveProduct()" [formGroup]="productForm" class="my-form">
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label for="productNameId">Product Name</mat-label>
+          <input matInput [ngClass]="{'is-invalid': displayMessage.productName }"
+                 id="productNameId"
+                 type="text"
+                 formControlName="productName"
+                 (blur)="blur()" required />
+          <mat-hint *ngIf="displayMessage.productName"> {{displayMessage.productName}} </mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label for="productCodeId">Product Code</mat-label>
+          <input matInput
+                 id="productCodeId"
+                 type="text"
+                 formControlName="productCode"
+                 (blur)="blur()" required />
+          <mat-hint *ngIf="displayMessage.productCode"> {{displayMessage.productCode}} </mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label for="starRatingId">Star Rating (1-5)</mat-label>
+          <input matInput [ngClass]="{'is-invalid': displayMessage.starRating}"
+                 id="starRatingId"
+                 type="text"
+                 formControlName="starRating" />
+          <mat-hint *ngIf="displayMessage.starRating"> {{displayMessage.starRating}} </mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-field">
+        <mat-form-field>
+          <mat-label for="descriptionId">Description</mat-label>
+          <textarea matInput
+                    id="descriptionId"
+                    rows=3
+                    formControlName="description">
+          </textarea>
+          <mat-hint *ngIf="displayMessage.description"> {{ displayMessage.description}} </mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="errorMessage" class="mat-warn"> Error: {{ errorMessage }}  </div>
+
+      <div class="action-button">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.valid || !productForm.dirty">
+          Save
+        </button>
+        <button mat-raised-button type="button" (click)="cancelEdit()">
+          Cancel
+        </button>
+        <button mat-raised-button color="accent" (click)="deleteProduct()">
+          Delete
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+
+</mat-card>

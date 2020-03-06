@@ -4,7 +4,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductShellComponent } from './product-shell/product-shell.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
-import {HomeModule} from '../home/home.module';
+import { HomeModule } from '../home/home.module';
 
 const productRoutes: Routes = [
   { path: '', component: ProductShellComponent }
@@ -15,7 +15,8 @@ const productRoutes: Routes = [
   imports: [
     SharedModule,
     RouterModule.forChild(productRoutes),
-    HomeModule
+    HomeModule,
+
   ]
 })
 export class ProductModule { }

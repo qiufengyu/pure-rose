@@ -4,7 +4,7 @@ import {AuthService} from '../../user/auth.service';
 @Component({
   selector: 'app-product-shell',
   templateUrl: './product-shell.component.html',
-  styleUrls: ['./product-shell.component.css']
+  styleUrls: ['./product-shell.component.scss']
 })
 export class ProductShellComponent implements OnInit {
 

@@ -11,7 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { ProductData } from './product/product-data';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
-import {RoseModule} from './rose/rose.module';
+import { RoseModule } from './rose/rose.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {RoseModule} from './rose/rose.module';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
+    FlexLayoutModule,
     HomeModule,
     ProductModule,
     SharedModule,
