@@ -1,7 +1,14 @@
-<div *ngIf="validUser" class="main-container"
-     fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-between">
-  <app-product-list fxFlex="30%"></app-product-list>
-  <app-product-edit fxFlex="60%"></app-product-edit>
+<div *ngIf="validUser" class="content main-container"
+     fxLayout="row"
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="40px">
+  <div fxFlex="30">
+    <app-product-list></app-product-list>
+  </div>
+  <div fxFlex="55">
+    <app-product-edit></app-product-edit>
+  </div>
 </div>
 
 <div *ngIf="!validUser" class="main-container">

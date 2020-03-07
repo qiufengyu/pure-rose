@@ -24,7 +24,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(ProductData),
-    FlexLayoutModule,
     HomeModule,
     ProductModule,
     SharedModule,
