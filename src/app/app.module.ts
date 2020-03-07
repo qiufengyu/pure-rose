@@ -12,7 +12,7 @@ import { ProductData } from './product/product-data';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { RoseModule } from './rose/rose.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {StoreModule} from '@ngrx/store';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RoseModule,
     UserModule,
     AppRoutingModule,
-
+    StoreModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

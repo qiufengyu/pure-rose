@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { HomeModule } from '../home/home.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './state/product.reducer';
 
 const productRoutes: Routes = [
   { path: '', component: ProductShellComponent }
@@ -21,7 +23,8 @@ const productRoutes: Routes = [
     SharedModule,
     RouterModule.forChild(productRoutes),
     HomeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StoreModule.forFeature('product', reducer)
 
   ]
 })

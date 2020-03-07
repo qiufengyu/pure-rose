@@ -20,7 +20,7 @@
 
   <mat-card-actions>
     <div *ngIf="errorMessage" class="mat-warn"> Error: {{ errorMessage }} </div>
-    <mat-checkbox [(ngModel)]="displayCode"> Display Product Code </mat-checkbox>
+    <mat-checkbox [(ngModel)]="displayCode" (ngModelChange)="checkChanged()"> Display Product Code </mat-checkbox>
     <div class="action-button"><button mat-raised-button color="primary" (click)="newProduct()"> Add </button></div>
   </mat-card-actions>
 </mat-card>
