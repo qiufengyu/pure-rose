@@ -4,10 +4,21 @@ import { ProductEditComponent } from './product-edit.component';
 import {SharedModule} from '../../shared/shared.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {provideMockStore} from '@ngrx/store/testing';
+import {State} from '../state/product.reducer';
 
 describe('ProductEditComponent', () => {
   let component: ProductEditComponent;
   let fixture: ComponentFixture<ProductEditComponent>;
+  const initialState: State = {
+    product: {
+      showProductCode: true,
+      currentProduct: null,
+      products: []
+    },
+    app: { hideWelcomePage: false},
+    user: { currentUser: null }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -16,6 +27,9 @@ describe('ProductEditComponent', () => {
         SharedModule,
         HttpClientTestingModule,
         BrowserAnimationsModule
+      ],
+      providers: [
+        provideMockStore({ initialState })
       ]
     })
     .compileComponents();

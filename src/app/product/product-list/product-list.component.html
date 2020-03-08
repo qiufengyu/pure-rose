@@ -6,7 +6,9 @@
   <mat-card-content>
     <mat-list role="productList">
       <mat-list-item role="productList" *ngFor="let product of products">
-        <button mat-stroked-button [ngClass]="{ 'active': product?.id === selectedProduct?.id}" (click)="productSelected(product)">
+        <button mat-button [ngClass]="product?.id === selectedProduct?.id ? 'mat-raised-button' : 'mat-stroked-button'"
+                           [color]="product?.id === selectedProduct?.id ? 'primary' : null"
+                           (click)="productSelected(product)">
           {{ product.productName }}
           <ng-container *ngIf="displayCode">
             ({{ product.productCode }})

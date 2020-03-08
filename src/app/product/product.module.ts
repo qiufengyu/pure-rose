@@ -25,7 +25,6 @@ const productRoutes: Routes = [
     HomeModule,
     FlexLayoutModule,
     StoreModule.forFeature('product', reducer)
-
   ]
 })
 export class ProductModule { }

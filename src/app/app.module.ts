@@ -12,7 +12,9 @@ import { ProductData } from './product/product-data';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { RoseModule } from './rose/rose.module';
-import {StoreModule} from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
+import {environment} from '../environments/environment';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -30,7 +32,12 @@ import {StoreModule} from '@ngrx/store';
     RoseModule,
     UserModule,
     AppRoutingModule,
-    StoreModule.forRoot({})
+    StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      name: 'Pure Rose DevTools',
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
