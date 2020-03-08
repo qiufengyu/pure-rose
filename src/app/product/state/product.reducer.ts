@@ -42,7 +42,7 @@ export const defaultCurrentProduct: Product = {
   productCode: 'New',
   description: '',
   starRating: 0
-}
+};
 
 export function reducer(state = initialState, action: ProductAction): ProductState {
   switch (action.type) {
