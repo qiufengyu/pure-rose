@@ -15,6 +15,7 @@ import { RoseModule } from './rose/rose.module';
 import { StoreModule } from '@ngrx/store';
 import {environment} from '../environments/environment';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
       name: 'Pure Rose DevTools',
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

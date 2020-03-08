@@ -8,6 +8,8 @@ import { HomeModule } from '../home/home.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './state/product.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {ProductEffect} from './state/product.effect';
 
 const productRoutes: Routes = [
   { path: '', component: ProductShellComponent }
@@ -24,7 +26,8 @@ const productRoutes: Routes = [
     RouterModule.forChild(productRoutes),
     HomeModule,
     FlexLayoutModule,
-    StoreModule.forFeature('product', reducer)
+    StoreModule.forFeature('product', reducer),
+    EffectsModule.forFeature([ProductEffect])
   ]
 })
 export class ProductModule { }

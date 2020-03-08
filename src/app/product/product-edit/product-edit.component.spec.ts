@@ -14,7 +14,8 @@ describe('ProductEditComponent', () => {
     product: {
       showProductCode: true,
       currentProduct: null,
-      products: []
+      products: [],
+      error: ''
     },
     app: { hideWelcomePage: false},
     user: { currentUser: null }

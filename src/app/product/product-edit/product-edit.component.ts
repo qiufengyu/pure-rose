@@ -8,6 +8,7 @@ import {select, Store} from '@ngrx/store';
 import * as fromProduct from '../state/product.reducer';
 import * as productAction from '../state/product.action';
 import {getCurrentProduct} from '../state/product.reducer';
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
+  currentProduct$: Observable<Product>;
 
   constructor(private fb: FormBuilder,
               private store: Store<fromProduct.State>,
@@ -64,11 +66,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     });
 
     // Watch for changes to the currently selected product
-    this.store.pipe(select(fromProduct.getCurrentProduct)).subscribe(
-      currentProduct => {
-        this.displayProduct(currentProduct);
-      }
-    );
+    this.currentProduct$ = this.store.pipe(select(fromProduct.getCurrentProduct));
+      // .subscribe(
+      // currentProduct => {
+      //   this.displayProduct(currentProduct);
+      // }
+    // );
 
     // Watch for value changes
     this.productForm.valueChanges.subscribe(

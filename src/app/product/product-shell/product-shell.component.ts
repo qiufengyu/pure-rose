@@ -13,7 +13,7 @@ export class ProductShellComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.validUser = true; this.authService.isLoggedIn();
+    this.validUser = this.authService.isLoggedIn();
   }
 
 }
