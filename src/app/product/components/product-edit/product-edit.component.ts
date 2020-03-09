@@ -1,14 +1,13 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Product} from '../product';
-import {GenericValidator} from '../../shared/generic-validator';
-import {ProductService} from '../product.service';
-import {NumberValidators} from '../../shared/number-validator';
+import {Product} from '../../product';
+import {GenericValidator} from '../../../shared/generic-validator';
+import {ProductService} from '../../product.service';
+import {NumberValidators} from '../../../shared/number-validator';
 import {select, Store} from '@ngrx/store';
-import * as fromProduct from '../state/product.reducer';
-import * as productAction from '../state/product.action';
-import {getCurrentProduct} from '../state/product.reducer';
-import {Observable} from 'rxjs';
+import * as fromProduct from '../../state';
+import * as productAction from '../../state/product.action';
+import {takeWhile} from 'rxjs/operators';
 
 
 @Component({
@@ -27,7 +26,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   displayMessage: { [key: string]: string } = {};
   private validationMessages: { [key: string]: { [key: string]: string } };
   private genericValidator: GenericValidator;
-  currentProduct$: Observable<Product>;
+  componentActive = true;
 
   constructor(private fb: FormBuilder,
               private store: Store<fromProduct.State>,
@@ -66,12 +65,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     });
 
     // Watch for changes to the currently selected product
-    this.currentProduct$ = this.store.pipe(select(fromProduct.getCurrentProduct));
-      // .subscribe(
-      // currentProduct => {
-      //   this.displayProduct(currentProduct);
-      // }
-    // );
+    this.store.pipe(select(fromProduct.getCurrentProduct),
+      takeWhile(() => this.componentActive))
+      .subscribe(
+      currentProduct => {
+      this.displayProduct(currentProduct);
+      }
+    );
 
     // Watch for value changes
     this.productForm.valueChanges.subscribe(
@@ -81,6 +81,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // this.store.unsubscribe();
+    this.componentActive = false;
   }
 
   // Also validate on blur
@@ -123,10 +124,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   deleteProduct(): void {
     if (this.product && this.product.id) {
       if (confirm(`Really delete the product: ${this.product.productName}?`)) {
-        this.productService.deleteProduct(this.product.id).subscribe({
-          next: () => this.store.dispatch(new productAction.ClearCurrentProduct()),
-          error: err => this.errorMessage = err.error
-        });
+        this.store.dispatch(new productAction.DeleteProduct(this.product.id));
       }
     } else {
       // No need to delete, it was never saved
@@ -143,15 +141,9 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         const p = { ...this.product, ...this.productForm.value };
 
         if (p.id === 0) {
-          this.productService.createProduct(p).subscribe({
-            next: product => this.store.dispatch(new productAction.SetCurrentProduct(product)),
-            error: err => this.errorMessage = err.error
-          });
+          this.store.dispatch(new productAction.CreateProduct(p));
         } else {
-          this.productService.updateProduct(p).subscribe({
-            next: product => this.store.dispatch(new productAction.SetCurrentProduct(product)),
-            error: err => this.errorMessage = err.error
-          });
+          this.store.dispatch(new productAction.UpdateProduct(p));
         }
       }
     } else {

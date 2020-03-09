@@ -21,4 +21,31 @@ export class ProductEffect {
     ))
     )
   );
+
+  updateProduct$ = createEffect(() => this.actions$.pipe(
+    ofType(productAction.ProductActionType.UpdateProduct),
+    map((action: productAction.UpdateProduct) => action.payload),
+    mergeMap( (product: Product) => this.productService.updateProduct(product).pipe(
+      map((updatedProduct: Product) => new productAction.UpdateProductSuccess(updatedProduct)),
+      catchError(err => of(new productAction.UpdateProductFail(err)))
+    ))
+  ));
+
+  createProduct$ = createEffect(() => this.actions$.pipe(
+    ofType(productAction.ProductActionType.CreateProduct),
+    map((action: productAction.CreateProduct) => action.payload),
+    mergeMap((product: Product) => this.productService.createProduct(product).pipe(
+      map((createProduct: Product) => new productAction.CreateProductSuccess(createProduct)),
+      catchError(err => of(new productAction.CreateProductFail(err)))
+      ))
+  ));
+
+  deleteProduct$ = createEffect(() => this.actions$.pipe(
+    ofType(productAction.ProductActionType.DeleteProduct),
+    map((action: productAction.DeleteProduct) => action.payload),
+    mergeMap((productId: number) => this.productService.deleteProduct(productId).pipe(
+      map(() => new productAction.DeleteProductSuccess(productId)),
+      catchError(err => of(new productAction.DeleteProductFail(err)))
+    ))
+  ));
 }

@@ -4,7 +4,7 @@ import { ProductListComponent } from './product-list.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
 import {Store} from '@ngrx/store';
-import {State} from '../state/product.reducer';
+import {State} from '../../state';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -12,7 +12,7 @@ describe('ProductListComponent', () => {
   const initialState: State = {
     product: {
       showProductCode: true,
-      currentProduct: null,
+      currentProductId: null,
       products: [],
       error: ''
     },

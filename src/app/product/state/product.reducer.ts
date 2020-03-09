@@ -1,54 +1,18 @@
 import {Product} from '../product';
-import * as fromRoot from '../../state/app.state';
-import {createFeatureSelector, createSelector} from '@ngrx/store';
 import {ProductAction, ProductActionType} from './product.action';
-
-export interface State extends fromRoot.State {
-  product: ProductState;
-}
 
 export interface ProductState {
   showProductCode: boolean;
-  currentProduct: Product;
+  currentProductId: number | null;
   products: Product[];
   error: string;
 }
 
 const initialState: ProductState = {
   showProductCode: true,
-  currentProduct: null,
+  currentProductId: null,
   products: [],
   error: ''
-};
-
-const getProductFeatureState = createFeatureSelector<ProductState>('product');
-
-export const getShowProductCode = createSelector(
-  getProductFeatureState,
-  state => state.showProductCode
-);
-
-export const getCurrentProduct = createSelector(
-  getProductFeatureState,
-  state => state.currentProduct
-);
-
-export const getProducts = createSelector(
-  getProductFeatureState,
-  state => state.products
-);
-
-export const getError = createSelector(
-  getProductFeatureState,
-  state => state.error
-);
-
-export const defaultCurrentProduct: Product = {
-  id: 0,
-  productName: '',
-  productCode: 'New',
-  description: '',
-  starRating: 0
 };
 
 export function reducer(state = initialState, action: ProductAction): ProductState {
@@ -61,19 +25,18 @@ export function reducer(state = initialState, action: ProductAction): ProductSta
     case ProductActionType.InitializeCurrentProduct:
         return {
           ...state,
-          currentProduct: defaultCurrentProduct
+          currentProductId: 0
         };
     case ProductActionType.ClearCurrentProduct:
       return {
         ...state,
-        currentProduct: null
+        currentProductId: null
       };
-    case ProductActionType.SetCurrentProduct: {
+    case ProductActionType.SetCurrentProduct:
       return {
         ...state,
-        currentProduct: action.payload
+        currentProductId: action.payload.id
       };
-    }
     case ProductActionType.LoadSuccess:
       return {
         ...state,
@@ -84,6 +47,43 @@ export function reducer(state = initialState, action: ProductAction): ProductSta
       return {
         ...state,
         products: [],
+        error: action.payload
+      };
+    case ProductActionType.UpdateProductSuccess:
+      return {
+        ...state,
+        currentProductId: action.payload.id,
+        products: state.products.map(
+          item => action.payload.id === item.id ? action.payload : item
+        ),
+        error: ''
+      };
+    case ProductActionType.UpdateProductFail:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case ProductActionType.CreateProductSuccess:
+      return {
+        ...state,
+        currentProductId: action.payload.id,
+        products: [...state.products, action.payload ]
+      };
+    case ProductActionType.CreateProductFail:
+      return {
+        ...state,
+        error: action.payload
+      };
+    case ProductActionType.DeleteProductSuccess:
+      return {
+        ...state,
+        currentProductId: null,
+        products: state.products.filter((p: Product) => p.id !== action.payload),
+        error: ''
+      };
+    case ProductActionType.DeleteProductFail:
+      return {
+        ...state,
         error: action.payload
       };
     default:

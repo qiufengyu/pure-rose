@@ -1,14 +1,33 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductShellComponent } from './product-shell.component';
+import {MockStore, provideMockStore} from '@ngrx/store/testing';
+import {Store} from '@ngrx/store';
+import {State} from '../../state';
 
 describe('ProductShellComponent', () => {
   let component: ProductShellComponent;
   let fixture: ComponentFixture<ProductShellComponent>;
+  const initialState: State = {
+    product: {
+      showProductCode: true,
+      currentProductId: null,
+      products: [],
+      error: ''
+    },
+    app: { hideWelcomePage: false},
+    user: { currentUser: null }
+  };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductShellComponent ]
+      declarations: [ ProductShellComponent ],
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        provideMockStore({ initialState })
+      ]
     })
     .compileComponents();
   }));

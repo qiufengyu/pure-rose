@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductEditComponent } from './product-edit.component';
-import {SharedModule} from '../../shared/shared.module';
+import {SharedModule} from '../../../shared/shared.module';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {provideMockStore} from '@ngrx/store/testing';
-import {State} from '../state/product.reducer';
+import {State} from '../../state';
 
 describe('ProductEditComponent', () => {
   let component: ProductEditComponent;
@@ -13,7 +13,7 @@ describe('ProductEditComponent', () => {
   const initialState: State = {
     product: {
       showProductCode: true,
-      currentProduct: null,
+      currentProductId: null,
       products: [],
       error: ''
     },

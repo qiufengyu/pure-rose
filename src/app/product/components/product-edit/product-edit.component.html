@@ -1,4 +1,4 @@
-<mat-card *ngIf="currentProduct$ | async as product">
+<mat-card *ngIf="product">
   <mat-card-header>
     <mat-card-title> {{ pageTitle }}</mat-card-title>
   </mat-card-header>
@@ -34,7 +34,7 @@
           <mat-label for="starRatingId">Star Rating (1-5)</mat-label>
           <input matInput [ngClass]="{'is-invalid': displayMessage.starRating}"
                  id="starRatingId"
-                 type="text"
+                 type="number"
                  formControlName="starRating" />
           <mat-hint *ngIf="displayMessage.starRating"> {{displayMessage.starRating}} </mat-hint>
         </mat-form-field>
