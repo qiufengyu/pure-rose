@@ -10,6 +10,7 @@ import { CustomBarComponent } from '../custom-bar/custom-bar.component';
 export class SnackComponent implements OnInit {
 
   value: number;
+  snackDate: Date;
 
   constructor(private snackbar: MatSnackBar) { }
 
@@ -26,4 +27,7 @@ export class SnackComponent implements OnInit {
     this.snackbar.open('This is from default snackbar because value is greater than 5', 'OK');
   }
 
+  onClickDate(event) {
+    alert('Select date ' + this.snackDate.toDateString());
+  }
 }

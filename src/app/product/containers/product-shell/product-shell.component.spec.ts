@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductShellComponent } from './product-shell.component';
 import {MockStore, provideMockStore} from '@ngrx/store/testing';
-import {Store} from '@ngrx/store';
 import {State} from '../../state';
 
 describe('ProductShellComponent', () => {

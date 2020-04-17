@@ -16,7 +16,7 @@ export class ProductEffect {
   loadProducts$ = createEffect( () => this.actions$.pipe(
     ofType(productAction.ProductActionType.Load),
     mergeMap(() => this.productService.getProducts().pipe(
-        map((products: Product[]) => (new productAction.LoadSuccess(products))),
+        map((products: Product[]) => new productAction.LoadSuccess(products)),
         catchError(err => of(new productAction.LoadFail(err)))
     ))
     )
