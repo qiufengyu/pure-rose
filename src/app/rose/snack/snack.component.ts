@@ -27,7 +27,13 @@ export class SnackComponent implements OnInit {
     this.snackbar.open('This is from default snackbar because value is greater than 5', 'OK');
   }
 
-  onClickDate(event) {
-    alert('Select date ' + this.snackDate.toDateString());
+  onOpenDatePicker() {
+    this.snackDate = null;
+  }
+
+  onCloseDatePicker() {
+    if (this.snackDate) {
+      alert('Select date ' + this.snackDate.toDateString());
+    }
   }
 }
