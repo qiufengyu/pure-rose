@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CustomBarComponent } from '../custom-bar/custom-bar.component';
+import {Observable} from 'rxjs';
+import {Product} from '../../product/product';
+import {ProductService} from '../../product/product.service';
 
 @Component({
   selector: 'app-snack',
@@ -11,10 +14,14 @@ export class SnackComponent implements OnInit {
 
   value: number;
   snackDate: Date;
+  query: string;
+  products$: Observable<Product[]>;
 
-  constructor(private snackbar: MatSnackBar) { }
+  constructor(private snackbar: MatSnackBar,
+              private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.products$ = this.productService.getProducts();
   }
 
   onCustomClick() {
