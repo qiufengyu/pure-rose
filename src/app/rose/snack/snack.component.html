@@ -33,16 +33,12 @@
             <div class="option-leftbox">
               <div class="option-icon"><mat-icon>home</mat-icon></div>
               <div class="text-wrapper">
-                <div class="text-first-line">{{product.productName}} ｜ <span class="entitle-chip"> {{ product.productCode }}</span> </div>
+                <div class="text-first-line">{{product.productName}} </div>
                 <div class="text-second-line">{{product.description}} </div>
               </div>
             </div>
             <div class="option-rightbox">
-              <div class="option-chip">
-<!--                <mat-chip-list>-->
-<!--                  <mat-chip color="accent" selected>Accent</mat-chip>-->
-<!--                </mat-chip-list>-->
-              </div>
+                <mat-chip color="accent" selected>{{ product.productCode }}</mat-chip>
             </div>
           </mat-option>
         </mat-autocomplete>
