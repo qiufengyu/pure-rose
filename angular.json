@@ -126,7 +126,7 @@
   "defaultProject": "pure-rose",
   "schematics": {
     "@schematics/angular:component": {
-      "styleext": "scss"
+      "style": "scss"
     }
   }
 }
