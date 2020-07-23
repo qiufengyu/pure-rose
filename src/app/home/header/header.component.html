@@ -1,10 +1,10 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Pure Rose</span>
+    <span data-cy="app-name">Pure Rose</span>
     <span class="fill-remaining-space"></span>
     <div *ngIf="!isLoggedIn">
       <mat-icon class="toolbar-icon" aria-hidden="false">account_circle</mat-icon>
-      <a class="toolbar-text" routerLink="/login"> <button mat-flat-button disableRipple color="primary"> Login </button></a>
+      <a class="toolbar-text" routerLink="/login"> <button mat-flat-button disableRipple color="primary" data-cy="login-button"> Login </button></a>
     </div>
 
     <div *ngIf="isLoggedIn">
@@ -15,9 +15,9 @@
 </mat-toolbar>
 
 <div>
-  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/welcome'> Home </button>
-  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/product'> Product </button>
-  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/rose'> Rose </button>
+  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/welcome' data-cy="tab-home"> Home </button>
+  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/product' data-cy="tab-product"> Product </button>
+  <button mat-button class="mat-menu-item" routerLinkActive="active" routerLink='/rose' data-cy="tab-rose"> Rose </button>
 </div>
 
 <mat-divider></mat-divider>

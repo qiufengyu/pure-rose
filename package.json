@@ -9,7 +9,10 @@
     "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start:cy": "ng serve --port 3030",
+    "cy:run": "cypress run",
+    "e2e": "ng e2e",
+    "e2e:cy": "start-server-and-test start:cy http://localhost:3030 cy:run"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +55,7 @@
     "karma-jasmine": "~3.3.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "protractor": "~7.0.0",
+    "start-server-and-test": "^1.11.2",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.9.7"
