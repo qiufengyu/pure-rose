@@ -12,6 +12,7 @@ export class CustomBarComponent implements OnInit {
               public snackBarRef: MatSnackBarRef<CustomBarComponent>) { }
 
   ngOnInit(): void {
+    return;
   }
 
 }

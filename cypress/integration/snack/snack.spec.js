@@ -1,6 +1,6 @@
 describe('Snack Test', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:4200');
+    cy.visit('http://localhost:3030');
     cy.get('button[data-cy=tab-rose]').click();
   });
 
