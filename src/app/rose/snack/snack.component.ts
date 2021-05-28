@@ -39,8 +39,6 @@ export class SnackComponent implements OnInit {
   }
 
   onCloseDatePicker() {
-    if (this.snackDate) {
-      alert('Select date ' + this.snackDate.toDateString());
-    }
+    alert('Select date ' + this.snackDate.toDateString());
   }
 }
