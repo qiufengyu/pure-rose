@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ProductEditComponent } from './product-edit.component';
 import {SharedModule} from '../../../shared/shared.module';
@@ -21,7 +21,7 @@ describe('ProductEditComponent', () => {
     user: { currentUser: null }
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ ProductEditComponent ],
       imports: [
