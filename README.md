@@ -1,10 +1,10 @@
 # PureRose
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+This project was first enerated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4. But now has been updated to Angular 12.
 
 [![license](https://img.shields.io/github/license/qiufengyu/pure-rose.svg)](https://github.com/qiufengyu/pure-rose/blob/master/LICENSE)
-[![Node.js](https://img.shields.io/badge/node->=12.16.1-green?style=flat&logo=node%2Ejs)](https://nodejs.org)
-[![Angular](https://img.shields.io/badge/Angular->=9.0.0-green?style=flat&logo=angular)](https://nodejs.org)
+[![Node.js](https://img.shields.io/badge/node-=14.17.0-green?style=flat&logo=node%2Ejs)](https://nodejs.org)
+[![Angular](https://img.shields.io/badge/Angular-=12.0.2-green?style=flat&logo=angular)](https://nodejs.org)
 [![Build Status](https://img.shields.io/travis/com/qiufengyu/pure-rose/master?tyle=flat&logo=travis-ci)](https://travis-ci.com/qiufengyu/pure-rose)
 [![codecov](https://codecov.io/gh/qiufengyu/pure-rose/branch/master/graph/badge.svg)](https://codecov.io/gh/qiufengyu/pure-rose)
 
@@ -34,7 +34,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Run `npm run e2e:cy` to execute the end-to-end tests via [Cypress](https://www.cypress.io/).
 
 ## Further help
 
