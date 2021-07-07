@@ -1,6 +1,6 @@
 # PureRose
 
-This project was first enerated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4. But now has been updated to Angular 12.
+This project was first generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4. But now has been updated to Angular 12.
 
 [![license](https://img.shields.io/github/license/qiufengyu/pure-rose.svg)](https://github.com/qiufengyu/pure-rose/blob/master/LICENSE)
 [![Node.js](https://img.shields.io/badge/node-=14.17.0-green?style=flat&logo=node%2Ejs)](https://nodejs.org)
