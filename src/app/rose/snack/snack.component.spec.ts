@@ -1,33 +1,47 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { SnackComponent } from './snack.component';
-import { SharedModule } from '../../shared/shared.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {SnackComponent} from './snack.component';
+import {SharedModule} from '../../shared/shared.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('SnackComponent', () => {
-  let component: SnackComponent;
-  let fixture: ComponentFixture<SnackComponent>;
+describe(
+    'SnackComponent',
+    () => {
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SnackComponent ],
-      imports: [
-        BrowserAnimationsModule,
-        SharedModule,
-        HttpClientTestingModule
-      ]
-    })
-    .compileComponents();
-  }));
+        let component: SnackComponent;
+        let fixture: ComponentFixture<SnackComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SnackComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        beforeEach(waitForAsync(() => {
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+            TestBed.configureTestingModule({
+                declarations: [SnackComponent],
+                imports: [
+                    BrowserAnimationsModule,
+                    SharedModule,
+                    HttpClientTestingModule
+                ]
+            }).
+                compileComponents();
+
+        }));
+
+        beforeEach(() => {
+
+            fixture = TestBed.createComponent(SnackComponent);
+            component = fixture.componentInstance;
+            fixture.detectChanges();
+
+        });
+
+        it(
+            'should create',
+            () => {
+
+                expect(component).toBeTruthy();
+
+            }
+        );
+
+    }
+);

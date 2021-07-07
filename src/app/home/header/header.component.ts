@@ -1,39 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from '../../user/auth.service';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../../user/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  constructor(private router: Router,
-              private authService: AuthService) {
-  }
+export class HeaderComponent {
 
-  get isLoggedIn(): boolean {
-    return this.authService.isLoggedIn();
-  }
-
-  get userName(): string {
-    if (this.authService.currentUser) {
-      return this.authService.currentUser.userName;
+    constructor(
+private router: Router,
+private authService: AuthService
+    ) {
     }
-    return '';
-  }
 
-  ngOnInit() {
-    return;
-  }
+    get isLoggedIn(): boolean {
 
-  login(): void {
-    this.router.navigate(['/login']);
-  }
+        return this.authService.isLoggedIn();
 
-  logout(): void {
-    this.authService.logout();
-    this.router.navigate(['/welcome']);
-  }
+    }
+
+    get userName(): string {
+
+        if (this.authService.currentUser) {
+
+            return this.authService.currentUser.userName;
+
+        }
+        return '';
+
+    }
+
+    login(): void {
+
+        this.router.navigate(['/login']);
+
+    }
+
+    logout(): void {
+
+        this.authService.logout();
+        this.router.navigate(['/welcome']);
+
+    }
 
 }

@@ -20,7 +20,8 @@ export enum ProductActionType {
   DeleteProductFail = '[Product] Delete Product Fail'
 }
 
-export class ToggleProductCode implements Action {
+export class ToggleProductCodeAction implements Action {
+
   readonly type = ProductActionType.ToggleProductCode;
 
   constructor(public payload: boolean) {
@@ -28,7 +29,8 @@ export class ToggleProductCode implements Action {
 
 }
 
-export class SetCurrentProduct implements Action {
+export class SetCurrentProductAction implements Action {
+
   readonly type = ProductActionType.SetCurrentProduct;
 
   constructor(public payload: Product) {
@@ -36,7 +38,8 @@ export class SetCurrentProduct implements Action {
 
 }
 
-export class ClearCurrentProduct implements Action {
+export class ClearCurrentProductAction implements Action {
+
   readonly type = ProductActionType.ClearCurrentProduct;
 
   constructor() {
@@ -44,112 +47,138 @@ export class ClearCurrentProduct implements Action {
 
 }
 
-export class InitializeCurrentProduct implements Action {
+export class InitializeCurrentProductAction implements Action {
+
   readonly type = ProductActionType.InitializeCurrentProduct;
 
   constructor() {
   }
+
 }
 
-export class Load implements Action {
+export class LoadAction implements Action {
+
   readonly type = ProductActionType.Load;
 
   constructor() {
   }
+
 }
 
-export class LoadSuccess implements Action {
+export class LoadSuccessAction implements Action {
+
   readonly type = ProductActionType.LoadSuccess;
 
   constructor(public payload: Product[]) {
   }
+
 }
 
-export class LoadFail implements Action {
+export class LoadFailAction implements Action {
+
   readonly type = ProductActionType.LoadFail;
 
   constructor(public payload: string) {
   }
+
 }
 
-export class UpdateProduct implements Action {
+export class UpdateProductAction implements Action {
+
   readonly type = ProductActionType.UpdateProduct;
 
   constructor(public payload: Product) {
   }
+
 }
 
-export class UpdateProductSuccess implements Action {
+export class UpdateProductSuccessAction implements Action {
+
   readonly type = ProductActionType.UpdateProductSuccess;
 
   constructor(public payload: Product) {
   }
+
 }
 
-export class UpdateProductFail implements Action {
+export class UpdateProductFailAction implements Action {
+
   readonly type = ProductActionType.UpdateProductFail;
 
   constructor(public payload: string) {
   }
+
 }
 
-export class CreateProduct implements Action {
+export class CreateProductAction implements Action {
+
   readonly type = ProductActionType.CreateProduct;
 
   constructor(public payload: Product) {
   }
+
 }
 
-export class CreateProductSuccess implements Action {
+export class CreateProductSuccessAction implements Action {
+
   readonly type = ProductActionType.CreateProductSuccess;
 
   constructor(public payload: Product) {
   }
+
 }
 
-export class CreateProductFail implements Action {
+export class CreateProductFailAction implements Action {
+
   readonly type = ProductActionType.CreateProductFail;
 
   constructor(public payload: string) {
   }
+
 }
 
-export class DeleteProduct implements Action {
+export class DeleteProductAction implements Action {
+
   readonly type = ProductActionType.DeleteProduct;
 
   constructor(public payload: number) {
   }
+
 }
 
-export class DeleteProductSuccess implements Action {
+export class DeleteProductSuccessAction implements Action {
+
   readonly type = ProductActionType.DeleteProductSuccess;
 
   constructor(public payload: number) {
   }
+
 }
 
-export class DeleteProductFail implements Action {
+export class DeleteProductFailAction implements Action {
+
   readonly type = ProductActionType.DeleteProductFail;
 
   constructor(public payload: string) {
   }
+
 }
 
 
 
-export type ProductAction = ToggleProductCode
-  | SetCurrentProduct
-  | ClearCurrentProduct
-  | InitializeCurrentProduct
-  | Load
-  | LoadSuccess
-  | LoadFail
-  | UpdateProduct
-  | UpdateProductSuccess
-  | UpdateProductFail
-  | CreateProduct
-  | CreateProductSuccess
-  | CreateProductFail
-  | DeleteProduct
-  | DeleteProductSuccess
-  | DeleteProductFail;
+export type ProductAction = ToggleProductCodeAction
+  | SetCurrentProductAction
+  | ClearCurrentProductAction
+  | InitializeCurrentProductAction
+  | LoadAction
+  | LoadSuccessAction
+  | LoadFailAction
+  | UpdateProductAction
+  | UpdateProductSuccessAction
+  | UpdateProductFailAction
+  | CreateProductAction
+  | CreateProductSuccessAction
+  | CreateProductFailAction
+  | DeleteProductAction
+  | DeleteProductSuccessAction
+  | DeleteProductFailAction;

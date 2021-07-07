@@ -1,27 +1,41 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { HeaderComponent } from './header.component';
+import {HeaderComponent} from './header.component';
 import {RouterTestingModule} from '@angular/router/testing';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe(
+    'HeaderComponent',
+    () => {
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
-      imports: [ RouterTestingModule ],
-    })
-    .compileComponents();
-  }));
+        let component: HeaderComponent;
+        let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+        beforeEach(waitForAsync(() => {
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+            TestBed.configureTestingModule({
+                declarations: [HeaderComponent],
+                imports: [RouterTestingModule],
+            }).
+                compileComponents();
+
+        }));
+
+        beforeEach(() => {
+
+            fixture = TestBed.createComponent(HeaderComponent);
+            component = fixture.componentInstance;
+            fixture.detectChanges();
+
+        });
+
+        it(
+            'should create',
+            () => {
+
+                expect(component).toBeTruthy();
+
+            }
+        );
+
+    }
+);
