@@ -19,15 +19,5 @@ steps:
     npm install -g @angular/cli
     npm install codecov -g
     npm install
-  displayName: 'npm install'
-
-- script: |
-    npm run lint
-    npm run test -- --no-watch --code-coverage --browsers ChromeHeadlessNoSandBox
-    npm run e2e:cy
-  displayName: 'npm test'
-
-- script: |
     ng build --prod
-  displayName: 'npm build'
-
+  displayName: 'npm install and build'
