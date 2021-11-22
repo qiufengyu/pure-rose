@@ -5,7 +5,7 @@ This project was first generated with [Angular CLI](https://github.com/angular/a
 [![license](https://img.shields.io/github/license/qiufengyu/pure-rose.svg)](https://github.com/qiufengyu/pure-rose/blob/master/LICENSE)
 [![Node.js](https://img.shields.io/badge/node-=14.17.0-green?style=flat&logo=node%2Ejs)](https://nodejs.org)
 [![Angular](https://img.shields.io/badge/Angular-=12.0.2-green?style=flat&logo=angular)](https://nodejs.org)
-[![Build Status](https://img.shields.io/travis/com/qiufengyu/pure-rose/master?tyle=flat&logo=travis-ci)](https://travis-ci.com/qiufengyu/pure-rose)
+[![Build Status](https://dev.azure.com/pure-rose/pure-rose/_apis/build/status/qiufengyu.pure-rose?branchName=master)](https://dev.azure.com/pure-rose/pure-rose/_build/latest?definitionId=1&branchName=master)
 [![codecov](https://codecov.io/gh/qiufengyu/pure-rose/branch/master/graph/badge.svg)](https://codecov.io/gh/qiufengyu/pure-rose)
 
 ## Source Repo
