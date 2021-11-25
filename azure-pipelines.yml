@@ -19,5 +19,5 @@ steps:
     npm install -g @angular/cli
     npm install codecov -g
     npm install
-    ng build --prod
+    npm run build:prod
   displayName: 'npm install and build'
