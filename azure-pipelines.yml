@@ -22,18 +22,12 @@ steps:
     npm run build:prod
   displayName: 'npm install and build'
 
-- script: |
-    DEPLOY_REPO="https://$(GITHUB_TOKEN)@github.com/$(Build.Repository.ID).git"
-    if [[ -z "$TARGET_BRANCH" ]]; then
-      DEPLOY_BRANCH="gh-pages"
-    else
-      DEPLOY_BRANCH="$TARGET_BRANCH"
-    fi
-    git init
-    git config user.name "Azure Pipelines"
-    git config user.email "pipelines@pure-rose.github.com"
-    git add --all;
-    git commit -m "Pipelines Bot: Auto deploy via $(Build.SourceVersion)";
-    git push --force $DEPLOY_REPO master:$DEPLOY_BRANCH
-  workingDirectory: './dist/pure-rose'
-  displayName: 'deploy to github pages'
+- task: GitHubPagesPublish@1
+  inputs:
+    docPath: './dist/pure-rose'
+    githubusername: 'Azure Pipelines'
+    githubemail: 'pipelines@pure-rose.github.com'
+    githubaccesstoken: '$(GITHUB_TOKEN)'
+    repositoryname: 'pure-rose'
+    branchname: 'gh-pages'
+    commitmessage: 'Automated Release $(Release.ReleaseId)'
