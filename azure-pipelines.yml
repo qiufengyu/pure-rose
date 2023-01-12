@@ -21,9 +21,6 @@ steps:
     npm install
     npm run build:prod
   displayName: 'npm install and build'
-  
-- checkout: self
-  persistCredentials: true
 
 - script: |
     DEPLOY_REPO="https://$(GITHUB_TOKEN)@github.com/$(Build.Repository.ID).git"
